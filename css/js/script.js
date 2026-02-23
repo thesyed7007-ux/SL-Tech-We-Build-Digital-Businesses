@@ -1,4 +1,4 @@
-// Smooth scroll
+// Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
@@ -8,15 +8,15 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 });
 
 // Scroll reveal
-const revealElements = document.querySelectorAll('.reveal');
+const revealItems = document.querySelectorAll('.reveal');
 
-const reveal = () => {
-  revealElements.forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 120) {
-      el.classList.add('active');
+function revealOnScroll() {
+  revealItems.forEach(item => {
+    if (item.getBoundingClientRect().top < window.innerHeight - 120) {
+      item.classList.add('active');
     }
   });
-};
+}
 
-window.addEventListener('scroll', reveal);
-reveal();
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
